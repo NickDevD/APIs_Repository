@@ -22,12 +22,18 @@ public class CrudServiceImpl implements CrudService{
     }
 
     @Override
-    public void excluir(LocalDate dataExpiracao) {
-        comida.remove(dataExpiracao);
+    public void excluir(Comida comida) {
+
     }
 
     @Override
     public List<Comida> listar() {
-        return new ArrayList<>(comida);
+        return List.of();
     }
-}
+
+    @Override
+    public void excluir() {
+        comida.removeIf(comida -> comida.getDataExpiracao().isAfter(LocalDate.now()));
+        }
+    }
+

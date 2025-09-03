@@ -7,9 +7,11 @@ import java.util.List;
 
 public interface CrudService {
 
-    public void criar(Comida comida);
+     public void criar(Comida comida);
 
-    public void excluir(LocalDate dataExpiracao);
+     public void excluir(Comida comida);
 
-    public List<Comida> listar();
+     public List<Comida> listar();
+
+    void excluir();
 }

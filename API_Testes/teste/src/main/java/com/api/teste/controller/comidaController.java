@@ -5,6 +5,7 @@ import com.api.teste.service.CrudServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -28,4 +29,11 @@ public class comidaController {
         crud.listar();
         return ResponseEntity.status(200).body(crud.listar());
     }
+
+    @DeleteMapping("/deletar")
+    public ResponseEntity<Void> deletar(){
+        crud.excluir();
+        return ResponseEntity.status(204).build();
+    }
+
 }

@@ -22,6 +22,11 @@ public class Food {
         this.dataValidade = dataValidade;
     }
 
+    public Food() {
+
+    }
+
+
     public Long getId() {
         return id;
     }

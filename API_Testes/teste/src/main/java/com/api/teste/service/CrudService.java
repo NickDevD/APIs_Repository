@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface CrudService {
 
-     public void criar(Comida comida);
+    void criar(Comida comida);
 
-     public void excluir(Comida comida);
+    List<Comida> listar();
 
-     public List<Comida> listar();
+    void excluirVencidos();
 
-    void excluir();
+    void atualizar(Comida comida);
 }

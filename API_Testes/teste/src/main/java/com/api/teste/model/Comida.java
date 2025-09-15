@@ -1,13 +1,14 @@
 package com.api.teste.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Comida {
+    Long id;
     String nome;
     LocalDate dataExpiracao;
 
-    public Comida(String nome, LocalDate dataExpiracao) {
+    public Comida(String nome, LocalDate dataExpiracao, Long id) {
+        this.id = id;
         this.nome = nome;
         this.dataExpiracao = dataExpiracao;
     }
@@ -26,5 +27,12 @@ public class Comida {
 
     public void setDataExpiracao(LocalDate dataExpiracao) {
         this.dataExpiracao = dataExpiracao;
+    }
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
     }
 }

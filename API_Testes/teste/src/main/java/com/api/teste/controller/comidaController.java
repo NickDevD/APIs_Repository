@@ -32,8 +32,15 @@ public class comidaController {
 
     @DeleteMapping("/deletar")
     public ResponseEntity<Void> deletar(){
-        crud.excluir();
+        crud.excluirVencidos();
         return ResponseEntity.status(204).build();
+    }
+
+    @PatchMapping("/atualizar/{id}")
+    public ResponseEntity<Comida> atualizar(@PathVariable Long id, @RequestBody Comida comida){
+        comida.setId(id);
+        crud.atualizar(comida);
+        return ResponseEntity.status(200).body(comida);
     }
 
 }

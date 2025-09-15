@@ -10,30 +10,36 @@ import java.util.List;
 @Service
 public class CrudServiceImpl implements CrudService{
 
-    List<Comida> comida;
+    List<Comida> comidas;
 
     public CrudServiceImpl(){
-        comida = new ArrayList<>();
+        comidas = new ArrayList<>();
     }
 
     @Override
     public void criar(Comida c) {
-        comida.add(c);
+        comidas.add(c);
     }
 
-    @Override
-    public void excluir(Comida comida) {
-
-    }
 
     @Override
     public List<Comida> listar() {
-        return List.of();
+        return new ArrayList<>(comidas);
+    }
+    
+
+    @Override
+    public void excluirVencidos() {
+        comidas.removeIf(comida -> comida.getDataExpiracao().isBefore(LocalDate.now()));
+
     }
 
     @Override
-    public void excluir() {
-        comida.removeIf(comida -> comida.getDataExpiracao().isAfter(LocalDate.now()));
-        }
+    public void atualizar(Comida co) {
+        Comida coAtualizar = co;
+        coAtualizar.setNome(co.getNome());
+        coAtualizar.setDataExpiracao(co.getDataExpiracao());
     }
+
+}
 

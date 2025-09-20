@@ -1,0 +1,13 @@
+package com.api.lovetodo;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class LovetodoApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

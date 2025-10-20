@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,17 +20,16 @@ public class TarefaService {
     }
 
 
-    public void criarTarefa(Tarefa tarefa) {
+    public Tarefa criarTarefa(Tarefa tarefa) {
         if (tarefa.getTitulo() == null || tarefa.getTitulo().isBlank()){
             log.error("Titulo não pode ser vazio");
             throw new RuntimeException("Titulo vazio");
-        }else {
-            service.save(tarefa);
         }
+        return service.save(tarefa);
     }
 
-    public void listarTarefas(){
-        service.findAll();
+    public List<Tarefa> listarTarefas(){
+        return service.findAll();
     }
 
     public Optional<Tarefa> listarTarefasID(Long id){
